@@ -1,0 +1,39 @@
+{
+    "source": "universal",
+    "url": "https://www.imdb.com/search/title/?country_of_origin=VN,VDVN",
+    "parse": true,
+    "parsing_instructions": {
+        "movies": {
+            "_fns": [
+                {
+                    "_fn": "xpath",
+                    "_args": [
+                        "//li[contains(@class,'ipc-metadata-list-summary-item')]"
+                    ]
+                }
+            ],
+            "_items": {
+                "title": {
+                    "_fns": [
+                        {
+                            "_fn": "xpath_one",
+                            "_args": [
+                                ".//h3/text()"
+                            ]
+                        }
+                    ]
+                },
+                "overview":{
+                    "_fns": [
+                        {
+                            "_fn": "xpath_one",
+                            "_args": [
+                                ".//*[contains(@class,'ipc-html-content-inner-div')]/text()"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
